@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Event Delegate Explore</h1>
+    <section id="container">
+        <ul id="list-ul">
+            <li class="list-item">List item-1</li>
+            <li class="list-item">List item-2</li>
+            <li class="list-item">List item-3</li>
+            <li class="list-item">List item-4</li>
+            <li class="list-item">List item-5</li>
+        </ul>
+        <button id="add-item">Add Item</button>
+    </section>
+
+    <script>
+       document.getElementById('list-ul').addEventListener('click', function(event){
+        //  console.log(event.target);
+          event.target.parentNode.removeChild(event.target);
+       })
+
+        document.getElementById('add-item').addEventListener('click', function(){
+            const ListUl = document.getElementById('list-ul');
+            const li = document.createElement('li');
+            li.innerText = 'Add list item';
+            li.classList.add('list-item');
+            ListUl.appendChild(li);
+        })
+    </script>
+</body>
+</html>
