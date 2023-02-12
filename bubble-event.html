@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Bubble Event</title>
+    <style>
+       #main-body{
+         border: 2px solid palevioletred;
+       }
+       #list-container{
+         border: 2px solid seagreen;
+       }
+       #list-ul{
+         border: 2px solid slateblue;
+       }
+       #list-item3{
+         border: 2px solid rgb(217, 61, 61);
+       }
+    </style>
+</head>
+<body id="main-body">
+    <section id="list-container">
+        <h2>Explore Bubble Event</h2>
+        <ul id="list-ul">
+            <li>List-item-1</li>
+            <li>List-item-2</li>
+            <li id="list-item3">List-item-3</li>
+            <li>List-item-4</li>
+            <li>List-item-5</li>
+        </ul>
+    </section>
+
+    <script>
+        document.getElementById('list-item3').addEventListener('click', function(event){
+            console.log('List item-3 clicked');
+            event.stopPropagation(); //stop bubble event
+        });
+
+        document.getElementById('list-ul').addEventListener('click', function(){
+            console.log('list-ul clicked');
+        });
+
+        document.getElementById('list-container').addEventListener('click', function(){
+            console.log('list-container clicked');
+        });
+
+        document.getElementById('main-body').addEventListener('click', function(){
+            console.log('main-body clicked');
+        });
+    </script>
+</body>
+</html>
